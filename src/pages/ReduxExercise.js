@@ -85,7 +85,7 @@ const ProductOne = (props) => {
   // Step 4
   // Replace the line below to get data of the first product from state.product
   // You should see the price is updated
-  const product = { title: "...", price: "...", qty: "..." };
+  const product = useSelector(state => state.product[0])
 
   // Step 7
   // Define: const dispatch = useDispatch();
@@ -135,7 +135,7 @@ const ProductTwo = (props) => {
   // Step 5
   // Replace the line below to get data of the second product from state.product
   // You should see the price is updated
-  const product = { title: "...", price: "...", qty: "..." };
+  const product = useSelector(state => state.product[1])
 
   // Step 9
   // Repeat step 7 and 8 for this component
