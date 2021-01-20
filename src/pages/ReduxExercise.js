@@ -3,7 +3,7 @@ import { Button, Col, Container, Row } from "react-bootstrap";
 import productOne from "../images/product1.gif";
 import productTwo from "../images/product2.gif";
 import ReactJson from "react-json-view";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const RootComponent = (props) => {
   return (
@@ -216,15 +216,17 @@ const CartProductTwo = (props) => {
 const Store = (props) => {
   // Step 1
   // use useSelector() to get the data of products and cart in the store
-  // pass {products, cart} to the src attribut of the component <ReactJson/>
-
+  // pass {products, cart} to the src attribute of the component <ReactJson/>
+  const products = useSelector(state => state.product)
+  const cart = useSelector(state => state.cart)
+  
   return (
     <div className="box text-center">
       <h4 className="box-title p-2">Store</h4>
       <div className="text-left">
         <ReactJson
           name="store"
-          src={{}}
+          src={{products, cart}}
           theme="monokai"
           displayDataTypes={false}
           displayObjectSize={false}
