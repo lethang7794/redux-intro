@@ -12,9 +12,9 @@ const RootComponent = (props) => {
   ]);
   // eslint-disable-next-line
   const [cart, setCart] = useState({
-    products: [
-      { id: "p1", title: "Product 1", price: 0, qty: 0 },
-      { id: "p2", title: "Product 2", price: 0, qty: 0 },
+    lineItems: [
+      { id: "p1", title: "Product 1", price: 1999, qty: 0, totalPrice: 0 },
+      { id: "p2", title: "Product 2", price: 999, qty: 0, totalPrice: 0 },
     ],
     totalPrice: 0,
   });
@@ -104,10 +104,10 @@ const CartPage = (props) => {
       <Container fluid>
         <Row>
           <Col>
-            <CartProductOne product={props.cart.products[0]} />
+            <CartProductOne product={props.cart.lineItems[0]} />
           </Col> 
           <Col>
-            <CartProductTwo product={props.cart.products[1]} />
+            <CartProductTwo product={props.cart.lineItems[1]} />
           </Col>
         </Row>
         <Row>
