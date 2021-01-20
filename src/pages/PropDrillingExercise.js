@@ -13,8 +13,8 @@ const RootComponent = (props) => {
   // eslint-disable-next-line
   const [cart, setCart] = useState({
     lineItems: [
-      { id: "p1", title: "Product 1", price: 1999, qty: 0, totalPrice: 0 },
-      { id: "p2", title: "Product 2", price: 999, qty: 0, totalPrice: 0 },
+      { id: "p1", title: "Product 1", price: 0, qty: 0, totalPrice: 0 },
+      { id: "p2", title: "Product 2", price: 0, qty: 0, totalPrice: 0 },
     ],
     totalPrice: 0,
   });
@@ -26,7 +26,21 @@ const RootComponent = (props) => {
   // Example newProduct = { id: "p1", title: "Product 1", price: 1999 }
   // The function will add one new product into the cart
   const addProductToCart = (addedProduct) => {
-    console.log(product);
+    const newLineItems = cart.lineItems.map((lineItem) => {
+      if (lineItem.id === addedProduct.id) {
+        lineItem.qty += 1;
+        lineItem.price = addedProduct.price;
+        lineItem.totalPrice = lineItem.qty * lineItem.price;
+      }
+      return lineItem;
+    });
+
+    const newCartTotalPrice = cart.lineItems.reduce((cartTotalPrice, lineItem) => cartTotalPrice + lineItem.totalPrice, 0)
+    
+    setCart({
+      lineItems: newLineItems,
+      totalPrice: newCartTotalPrice,
+    })
   };
 
   // Step 2
@@ -34,7 +48,24 @@ const RootComponent = (props) => {
   // Example removedProduct = { id: "p1", title: "Product 1", price: 1999 }
   // The function will remove one product from the cart. The min value of quantity is 0
   const removeProductFromCart = (removedProduct) => {
-    console.log(product);
+    const newLineItems = cart.lineItems.map((lineItem) => {
+      if (lineItem.id === removedProduct.id && lineItem.qty > 0) {
+        lineItem.qty -= 1;
+        if (lineItem.qty === 0) {
+          lineItem.price = 0;
+        }
+
+        lineItem.totalPrice = lineItem.qty * lineItem.price;
+      }
+      return lineItem
+    });
+
+    const newCartTotalPrice = newLineItems.reduce((cartTotalPrice, lineItem) => cartTotalPrice + lineItem.price * lineItem.qty, 0)
+
+    setCart({
+      lineItems: newLineItems,
+      totalPrice: newCartTotalPrice,
+    })
   }
 
   // Step 3
