@@ -175,7 +175,8 @@ const CartProductOne = (props) => {
   // Step 2
   // Replace the line below to get data of the first product from state.cart.products
   // Change the price of products in `cart.reducer.js` to see the effect
-  const product = { price: "...", qty: "..." };
+  const lineItemOne = useSelector(state => state.cart.products[0])
+  const product = { price: lineItemOne.price, qty: lineItemOne.qty };
 
   return (
     <div className="box text-center">
@@ -196,7 +197,8 @@ const CartProductTwo = (props) => {
   // Step 3
   // Replace the line below to get data of the second product from state.cart.products
   // Change the price of products in `cart.reducer.js` to see the effect
-  const product = { price: "...", qty: "..." };
+  const lineItemTwo = useSelector(state => state.cart.products[1])
+  const product = { price: lineItemTwo.price, qty: lineItemTwo.qty };
 
   return (
     <div className="box text-center">
