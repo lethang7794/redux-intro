@@ -25,11 +25,17 @@ const RootComponent = (props) => {
   // Write a function called addProductToCart() that takes a product object as an argument
   // Example newProduct = { id: "p1", title: "Product 1", price: 1999 }
   // The function will add one new product into the cart
+  const addProductToCart = (addedProduct) => {
+    console.log(product);
+  };
 
   // Step 2
   // Write a function called removeProductFromCart() that takes a product object as an argument
   // Example removedProduct = { id: "p1", title: "Product 1", price: 1999 }
   // The function will remove one product from the cart. The min value of quantity is 0
+  const removeProductFromCart = (removedProduct) => {
+    console.log(product);
+  }
 
   // Step 3
   // Pass the functions to the product components to handle the click event of the Add/Remove buttons
@@ -54,7 +60,7 @@ const RootComponent = (props) => {
       <Container fluid>
         <Row>
           <Col>
-            <ProductPage products={products} />
+            <ProductPage products={products} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} />
           </Col>
           <Col>
             <CartPage cart={cart} />
@@ -76,10 +82,10 @@ const ProductPage = (props) => {
       <Container fluid>
         <Row>
           <Col>
-            <ProductOne product={props.products[0]} />
+            <ProductOne product={props.products[0]} addProductToCart={props.addProductToCart} removeProductFromCart={props.removeProductFromCart} />
           </Col>
           <Col>
-            <ProductTwo product={props.products[1]} />
+            <ProductTwo product={props.products[1]} addProductToCart={props.addProductToCart} removeProductFromCart={props.removeProductFromCart} />
           </Col>
         </Row>
       </Container>
@@ -99,7 +105,7 @@ const CartPage = (props) => {
         <Row>
           <Col>
             <CartProductOne product={props.cart.products[0]} />
-          </Col>
+          </Col> 
           <Col>
             <CartProductTwo product={props.cart.products[1]} />
           </Col>
@@ -132,12 +138,12 @@ const ProductOne = (props) => {
         </Row>
         <Row>
           <Col>
-            <Button variant="success" size="sm" style={{ width: "5rem" }}>
+            <Button variant="success" size="sm" style={{ width: "5rem" }} onClick={() => props.addProductToCart(props.product)}>
               Add
             </Button>
           </Col>
           <Col>
-            <Button variant="danger" size="sm" style={{ width: "5rem" }}>
+            <Button variant="danger" size="sm" style={{ width: "5rem" }} onClick={() => props.removeProductFromCart(props.product)}>
               Remove
             </Button>
           </Col>
@@ -164,12 +170,12 @@ const ProductTwo = (props) => {
         </Row>
         <Row>
           <Col>
-            <Button variant="success" size="sm" style={{ width: "5rem" }}>
+            <Button variant="success" size="sm" style={{ width: "5rem" }} onClick={() => props.addProductToCart(props.product)}>
               Add
             </Button>
           </Col>
           <Col>
-            <Button variant="danger" size="sm" style={{ width: "5rem" }}>
+            <Button variant="danger" size="sm" style={{ width: "5rem" }} onClick={() => props.removeProductFromCart(props.product)}>
               Remove
             </Button>
           </Col>
