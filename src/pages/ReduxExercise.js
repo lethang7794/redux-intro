@@ -221,7 +221,7 @@ const Store = (props) => {
   return (
     <div className="box text-center">
       <h4 className="box-title p-2">Store</h4>
-      <p className="text-left">
+      <div className="text-left">
         <ReactJson
           name="store"
           src={{}}
@@ -229,7 +229,7 @@ const Store = (props) => {
           displayDataTypes={false}
           displayObjectSize={false}
         />
-      </p>
+      </div>
     </div>
   );
 };

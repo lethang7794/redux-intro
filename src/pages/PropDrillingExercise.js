@@ -41,7 +41,7 @@ const RootComponent = (props) => {
         <span className="text-warning">{Object.keys(props).join(", ")}</span>
         {`})`}
       </h4>
-      <p className="text-left">
+      <div className="text-left">
         <ReactJson
           name="state"
           src={{ products, cart }}
@@ -50,7 +50,7 @@ const RootComponent = (props) => {
           displayDataTypes={false}
           displayObjectSize={false}
         />
-      </p>
+      </div>
       <Container fluid>
         <Row>
           <Col>
