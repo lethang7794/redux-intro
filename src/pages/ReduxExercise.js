@@ -52,7 +52,7 @@ const ProductPage = (props) => {
 const CartPage = (props) => {
   // Step 6
   // Replace the line below to get data of the second product from state.cart.totalPrice
-  const totalPrice = "...";
+  const totalPrice = useSelector(state => state.cart.totalPrice)
 
   return (
     <div className="box text-center">
