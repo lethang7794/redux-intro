@@ -10,3 +10,12 @@
 .box .container-fluid {
   margin-bottom: 0.5rem;
 }
+
+.Props {
+  font-size: 1.3rem;
+  font-weight: normal;
+}
+
+.product__image {
+  max-width: 25%;
+}

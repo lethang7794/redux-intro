@@ -10,7 +10,7 @@ const RootComponent = (props) => {
     <div className="box text-center">
       <h4 className="box-title p-2">
         RootComponent {`({`}
-        <span className="text-warning">{Object.keys(props).join(", ")}</span>
+        <span className="Props text-dark">{Object.keys(props).join(", ")}</span>
         {`})`}
       </h4>
       <Container fluid>
@@ -32,7 +32,7 @@ const ProductPage = (props) => {
     <div className="box text-center">
       <h4 className="box-title p-2">
         Product Page {`({`}
-        <span className="text-warning">{Object.keys(props).join(", ")}</span>
+        <span className="Props text-dark">{Object.keys(props).join(", ")}</span>
         {`})`}
       </h4>
       <Container fluid>
@@ -58,7 +58,7 @@ const CartPage = (props) => {
     <div className="box text-center">
       <h4 className="box-title p-2">
         Cart Page {`({`}
-        <span className="text-warning">{Object.keys(props).join(", ")}</span>
+        <span className="Props text-dark">{Object.keys(props).join(", ")}</span>
         {`})`}
       </h4>
       <Container fluid>
@@ -104,14 +104,14 @@ const ProductOne = (props) => {
     <div className="box text-center">
       <h4 className="box-title p-2">
         {product.title} {`({`}
-        <span className="text-warning">{Object.keys(props).join(", ")}</span>
+        <span className="Props text-dark">{Object.keys(props).join(", ")}</span>
         {`})`}
       </h4>
       <Container fluid>
         <Row>
           <Col>
-            <img src={productOne} alt="Product One" width="100%" />
-            <h5 className="text-success">💵 {product.price}</h5>
+            <img className="product__image" src={productOne} alt="Product One" width="100%" />
+            <h5 className="Props text-dark">💵 {product.price}</h5>
           </Col>
         </Row>
         <Row>
@@ -144,14 +144,14 @@ const ProductTwo = (props) => {
     <div className="box text-center">
       <h4 className="box-title p-2">
         {product.title} {`({`}
-        <span className="text-warning">{Object.keys(props).join(", ")}</span>
+        <span className="Props text-dark">{Object.keys(props).join(", ")}</span>
         {`})`}
       </h4>
       <Container fluid>
         <Row>
           <Col>
-            <img src={productTwo} alt="Product Two" width="100%" />
-            <h5 className="text-success">💵 {product.price}</h5>
+            <img className="product__image" src={productTwo} alt="Product Two" width="100%" />
+            <h5 className="Props text-dark">💵 {product.price}</h5>
           </Col>
         </Row>
         <Row>
@@ -181,7 +181,7 @@ const CartProductOne = (props) => {
     <div className="box text-center">
       <h4 className="box-title p-2">
         CartProduct 1 {`({`}
-        <span className="text-warning">{Object.keys(props).join(", ")}</span>
+        <span className="Props text-dark">{Object.keys(props).join(", ")}</span>
         {`})`}
       </h4>
       <Container fluid>
@@ -202,7 +202,7 @@ const CartProductTwo = (props) => {
     <div className="box text-center">
       <h4 className="box-title p-2">
         CartProduct 2 {`({`}
-        <span className="text-warning">{Object.keys(props).join(", ")}</span>
+        <span className="Props text-dark">{Object.keys(props).join(", ")}</span>
         {`})`}
       </h4>
       <Container fluid>
