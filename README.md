@@ -6,7 +6,7 @@
 - [x] User can add product to the cart.
 - [x] User can remove product from the cart only when there are products with the same id in the cart.
 - [x] The cart shows total price and price of each product in the cart.
-- [] Implement the same features but use Redux.
+- [x] Implement the same features but use Redux.
 
 ## Optional
 

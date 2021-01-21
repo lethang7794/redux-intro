@@ -148,6 +148,15 @@ const ProductTwo = (props) => {
 
   // Step 9
   // Repeat step 7 and 8 for this component
+  const dispatch = useDispatch();
+
+  const handleAddProduct = (addedProduct) => {
+    dispatch(cartActions.addProduct(addedProduct))
+  }
+
+  const handleRemoveProduct = (removedProduct) => {
+    dispatch(cartActions.removeProduct(removedProduct))
+  }
 
   return (
     <div className="box text-center">
@@ -165,12 +174,12 @@ const ProductTwo = (props) => {
         </Row>
         <Row>
           <Col>
-            <Button variant="success" size="sm" style={{ width: "5rem" }}>
+            <Button variant="success" size="sm" style={{ width: "5rem" }} onClick={() => {handleAddProduct(product)}}>
               Add
             </Button>
           </Col>
           <Col>
-            <Button variant="danger" size="sm" style={{ width: "5rem" }}>
+            <Button variant="danger" size="sm" style={{ width: "5rem" }} onClick={() => {handleRemoveProduct(product)}}>
               Remove
             </Button>
           </Col>
