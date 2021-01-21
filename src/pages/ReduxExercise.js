@@ -4,6 +4,7 @@ import productOne from "../images/product1.gif";
 import productTwo from "../images/product2.gif";
 import ReactJson from "react-json-view";
 import { useDispatch, useSelector } from "react-redux";
+import cartActions from '../redux/actions/cart.actions';
 
 const RootComponent = (props) => {
   return (
@@ -95,10 +96,18 @@ const ProductOne = (props) => {
   // eslint-disable-next-line
   const dispatch = useDispatch();
 
+  const handleAddProduct = (addedProduct) => {
+    dispatch(cartActions.addProduct(addedProduct))
+  }
+
   // Step 8
   // Create a function to handle click event of the button Remove
   // In the function, dispatch cartActions.removeProduct(product) to trigger the action remove product from the cart
   // Make the function handle onClick event of the button
+  const handleRemoveProduct = (removedProduct) => {
+    dispatch(cartActions.removeProduct(removedProduct))
+  }
+  
 
   return (
     <div className="box text-center">
@@ -116,12 +125,12 @@ const ProductOne = (props) => {
         </Row>
         <Row>
           <Col>
-            <Button variant="success" size="sm" style={{ width: "5rem" }}>
+            <Button variant="success" size="sm" style={{ width: "5rem" }} onClick={() => handleAddProduct(product)}>
               Add
             </Button>
           </Col>
           <Col>
-            <Button variant="danger" size="sm" style={{ width: "5rem" }}>
+            <Button variant="danger" size="sm" style={{ width: "5rem" }} onClick={() => handleRemoveProduct(product)}>
               Remove
             </Button>
           </Col>
